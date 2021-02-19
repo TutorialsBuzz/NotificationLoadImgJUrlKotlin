@@ -76,7 +76,12 @@ class MainActivity : AppCompatActivity() {
             .load(imageUrl)
             .into(object : CustomTarget<Bitmap>() {
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    //largeIcon
                     notificationBuilder.setLargeIcon(resource)
+                    //Big Picture
+                    notificationBuilder.setStyle(
+                        NotificationCompat.BigPictureStyle().bigPicture(resource)
+                    )
                     val notification = notificationBuilder.build()
                     notificationManager.notify(NotificationID.iD, notification)
                 }
